@@ -1,2 +1,2 @@
 # pingpong
-Udvikle et pingpong spil, hvor der indgår svg
+Projekt PingPong - Vi skal lave et pingpong spil
