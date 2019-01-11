@@ -1,8 +1,11 @@
+<?php ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link type="text/css" rel="stylesheet" href="/public_html/assets/include/header.php">
+    <title>PINGPONG</title>
   </head>
   <body>
-    <h1>Header.php</h1>
+
+
