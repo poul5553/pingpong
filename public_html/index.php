@@ -1,11 +1,5 @@
 <?php include("assets/include/header.php"); ?>
 
-<h1>Index.php her</h1>
-
-<?php include("assets/include/footer.php"); ?>
-
-
-    
     <section class="board">
  
         <h1 class="myH1">PINGPONG</h1>
@@ -45,4 +39,5 @@
         </div>
         
     </section>
-    
+
+<?php include("assets/include/footer.php"); ?>
