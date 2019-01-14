@@ -1,6 +1,6 @@
 var paddleHeight = 100;
 var paddleWidth = 10;
-var ballRadius = 25;
+var ballRadius = 10;
 var halfPaddleHeight = paddleHeight / 2;
 var speedOfPaddle1 = 0;
 var positionOfPaddle1 = 300;
@@ -14,7 +14,7 @@ var score1 = 0;
 var score2 = 0;
 function startBall() {
 	topPositionOfBall = 410;
-	leftPositionOfBall = 820;
+	leftPositionOfBall = 420;
 	if (Math.random() < 0.5) {
 		var side = 1
 	} else {
@@ -59,11 +59,13 @@ window.setInterval(function show() {
 	positionOfPaddle2 += speedOfPaddle2;
 	topPositionOfBall += topSpeedOfBall;
 	leftPositionOfBall += leftSpeedOfBall;
-	if (positionOfPaddle1 <= 150) {
-		positionOfPaddle1 = 150;
+
+
+	if (positionOfPaddle1 <= 0) {
+		positionOfPaddle1 = 0;
 	}
-	if (positionOfPaddle2 <= 150) {
-		positionOfPaddle2 = 150;
+	if (positionOfPaddle2 <= 0) {
+		positionOfPaddle2 = 0;
 	}
 	if (positionOfPaddle1 >= window.innerHeight - paddleHeight) {
 		positionOfPaddle1 = window.innerHeight - paddleHeight;
@@ -71,7 +73,7 @@ window.setInterval(function show() {
 	if (positionOfPaddle2 > window.innerHeight - paddleHeight) {
 		positionOfPaddle2 = window.innerHeight - paddleHeight;
 	}
-	if (topPositionOfBall <= 150 || topPositionOfBall >= window.innerHeight - ballRadius) {
+	if (topPositionOfBall <= 0 || topPositionOfBall >= window.innerHeight) {
 		topSpeedOfBall = -topSpeedOfBall
 	}
 	if (leftPositionOfBall <= paddleWidth) {

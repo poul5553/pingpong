@@ -23,9 +23,10 @@ body {
 /*Game field*/
 #field {
     width:60%;
-    height: 50vh;
+    height: auto;
     display: inline-block;
     border: 4px solid grey;
+    box-sizing: border-box; 
     margin-bottom: 6px;
 }
 
