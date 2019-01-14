@@ -1,5 +1,11 @@
 <?php include("assets/include/header.php"); ?>
 
+<style>
+body {
+  width: 1200px;
+  margin: auto;
+}
+</style>
     <section class="board">
 
         <h1 class="myH1">PINGPONG</h1>

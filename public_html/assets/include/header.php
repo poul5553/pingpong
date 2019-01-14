@@ -6,7 +6,7 @@ session_start();
   <head>
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="assets/css/index.css">
-    <script type="text/javascript" src="assets/js/game.js"></script>
+    <script type="text/javascript" src="assets/js/pong.js"></script>
     <title>PINGPONG</title>
   </head>
-  <body>
+  <body onload="startBall()">
