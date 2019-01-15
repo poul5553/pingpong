@@ -1,3 +1,4 @@
+
 /* Skal laves i SCSS T.T */
 
 body {
@@ -78,14 +79,12 @@ button:hover{
     width: 97.3%;
     align-items: end;
     margin: 10px 0 17px 10px;
-
     #playerOne, #playerTwo, .score{
         border: 3px solid grey;
     }
     #player1{
         justify-self: start;
     }
-
     #player2{
         justify-self: end;
     }
@@ -106,4 +105,3 @@ button:hover{
         font-size: 24px;
         border: 1px solid darkgrey;
     }
-}

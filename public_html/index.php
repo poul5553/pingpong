@@ -32,15 +32,19 @@ body {
         </div>
 
 
-
         <div >
             <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
                 <!-- <rect id="background" width="1000" height="600"></rect> -->
 
-                <rect id="paddleLeft" width="20" height="100" x="10" y="200"></rect>
-                <rect id="paddleRight" width="20" height="100" x="770" y="200"></rect>
+   
+    
+        <div id="field">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
 
-                <circle id="ball" r="10" cx="400" cy="250"></circle>
+                <rect id="paddleLeft" width="20" height="100" x="10" y="120"></rect>
+                <rect id="paddleRight" width="20" height="100" x="770" y="120"></rect>
+
+                <circle id="ball" r="10" cx="400" cy="160"></circle>
             </svg>
         </div>
 
