@@ -1,11 +1,6 @@
 <?php include("assets/include/header.php"); ?>
 
-<style>
-body {
-  width: 1200px;
-  margin: auto;
-}
-</style>
+
     <section class="board">
 
         <h1 class="myH1">PINGPONG</h1>
@@ -29,24 +24,19 @@ body {
                 <text class="score" id="playerTwo" x="200" y="50">Player 2</text>
 
             </div>
-        </div>
-
-
-        <div >
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
-                <!-- <rect id="background" width="1000" height="600"></rect> -->
+        </div>  
 
    
     
-        <div id="field">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
+        
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 718" preserveAspectRatio="xMinYMin">
 
                 <rect id="paddleLeft" width="20" height="100" x="10" y="120"></rect>
-                <rect id="paddleRight" width="20" height="100" x="770" y="120"></rect>
+                <rect id="paddleRight" width="20" height="100" x="1520" y="120"></rect>
 
                 <circle id="ball" r="10" cx="400" cy="160"></circle>
             </svg>
-        </div>
+    
 
 
     </section>
