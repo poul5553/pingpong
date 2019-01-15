@@ -34,11 +34,11 @@ body {
 
 
         <div >
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 718" preserveAspectRatio="xMidYMid">
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
                 <!-- <rect id="background" width="1000" height="600"></rect> -->
 
-                <rect id="paddleLeft" class="paddeLeft" width="20" height="100" x="10" y="200"></rect>
-                <rect id="paddleRight" width="20" height="100" x="970" y="200"></rect>
+                <rect id="paddleLeft" width="20" height="100" x="10" y="200"></rect>
+                <rect id="paddleRight" width="20" height="100" x="770" y="200"></rect>
 
                 <circle id="ball" r="10" cx="400" cy="250"></circle>
             </svg>
