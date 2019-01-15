@@ -1,0 +1,57 @@
+{
+    "php.validate.executablePath": "C:/Program Files/php/php.exe",
+    "liveSassCompile.settings.autoprefix": null,
+    "liveSassCompile.settings.formats": [
+        {
+          "format": "expanded",
+          "extensionName": ".css",
+          "savePath": "/public_html/assets/css"
+        }
+    ],
+    "php-docblocker.extra": []
+}
+
+// Live Sass Compile Config
+ // Automatically add vendor prefixes to unsupported CSS properties (e. g. transform -> -ms-transform). Specify what browsers to target with an array of strings (uses [Browserslist](https://github.com/ai/browserslist)). Pass `null` to turn off. 
+  // Default is `null`
+//   "liveSassCompile.settings.autoprefix": [
+//     "> 1%",
+//     "last 2 versions"
+//   ],
+
+
+
+// Ftp-sync: Init
+
+// Initializes a default FTP-Sync configuration file in the .vscode directory. Options can be customised as follows:
+
+// remotePath - This can be set to the path on the remote that you would like to upload to. The default is ./ i.e. the root.
+// host - The hostname of the FTP server you want to connect to.
+// username - The username of the FTP account you want to use.
+// password - The password of the FTP account you want to use.
+// port - The port on the FTP server you would like to connect to. The default is "21".
+// protocol - The FTP protocol to be used. The default is "ftp" but you can also specify "sftp".
+// uploadOnSave - Whether files should automatically be uploaded on save. The default is false.
+// passive - Specifies whether to use FTP passive mode. The default is false.
+// debug - Specifies whether to display debug information in an ftp-sync Output window. The default is false.
+// privateKeyPath - Specifies the path to the private key for SFTP. The default is null.
+// passphrase - Specifies the passphrase to use with the private key for SFTP. The default is null.
+// ignore - An array of escaped regular expression strings specifying paths to ignore. If a path matches any of these regular expressions then it will not be included in the sync. Default values are "\\.git", "\\.vscode" and ".DS_Store".
+// "generatedFiles": {
+// "uploadOnSave": true,
+// "path": "", [e.g.] "/build",
+// "extensionsToInclude": [] e.g. [".js", ".styl"] }
+
+
+// Ftp-sync: Sync Local to Remote
+
+// Displays a synchronization wizard to configure a sync operation that changes FTP files and folders to match project files.
+
+// Ftp-sync: Sync Remote to Local
+
+// Displays a synchronization wizard to configure a sync operation that changes project files and folders to match FTP files.
+
+// Ftp-sync: Commit
+
+// Commits reviewed list of changes made with Sync Local to Remote or Sync Remote to Local command.
+

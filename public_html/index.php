@@ -1,14 +1,20 @@
 <?php include("assets/include/header.php"); ?>
 
+<style>
+body {
+  width: 1200px;
+  margin: auto;
+}
+</style>
     <section class="board">
- 
+
         <h1 class="myH1">PINGPONG</h1>
-        
+
         <div id="playSetting">
             <button class="how" id="how">HOW TO PLAY</button>
             <button class="setting" id="setting">SETTINGS</button>
         </div>
-        
+
         <div id="gameRecord">
             <div id="player1">
                 <text class="score" id="playerOne" x="200" y="50">Player 1</text>
@@ -25,6 +31,11 @@
             </div>
         </div>
 
+
+        <div >
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid">
+                <!-- <rect id="background" width="1000" height="600"></rect> -->
+
    
     
         <div id="field">
@@ -36,7 +47,8 @@
                 <circle id="ball" r="10" cx="400" cy="160"></circle>
             </svg>
         </div>
-        
+
+
     </section>
 
 <?php include("assets/include/footer.php"); ?>
