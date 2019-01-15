@@ -1,98 +1,83 @@
 /* Skal laves i SCSS T.T */
-/* line 4, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 body {
   margin: 0px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-/* line 11, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #background {
   fill: white;
 }
 
 /*Whole section inc. field*/
-/* line 15, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board {
   width: 65%;
-  height: 80vh;
+  height: 72vh;
   border: 15px solid grey;
   margin: 15px auto;
   text-align: center;
   /*Game field*/
 }
 
-/* line 22, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board .myH1 {
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
 }
 
-/* line 27, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board #field {
-  width: 97%;
-  height: 50.5vh;
+  width: 62%;
+  height: 40vh;
   display: inline-block;
   border: 4px solid grey;
   margin-bottom: 6px;
 }
 
-/* line 34, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board #field #paddleLeft {
   fill: blue;
 }
 
-/* line 35, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board #field #paddleRight {
   fill: red;
 }
 
-/* line 36, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 .board #field #ball {
   fill: black;
 }
 
-/* line 41, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 button {
   color: white;
   font-weight: 200;
   padding: 5px;
 }
 
-/* line 47, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 button:hover {
   cursor: pointer;
 }
 
 /*Styling of How to play and Settings button*/
-/* line 53, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #playSetting {
   position: relative;
   height: 40px;
 }
 
-/* line 57, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #playSetting .how, #playSetting .setting {
   border: 1px solid darkgrey;
   background-color: grey;
   font-size: 13px;
 }
 
-/* line 62, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #playSetting .how {
   position: absolute;
   left: 0;
   margin: 10px;
 }
 
-/* line 67, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #playSetting .setting {
   float: right;
   margin: 10px;
 }
 
 /**/
-/* line 76, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -101,40 +86,33 @@ button:hover {
   margin: 10px 0 17px 10px;
 }
 
-/* line 83, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord #playerOne, #gameRecord #playerTwo, #gameRecord .score {
   border: 3px solid grey;
 }
 
-/* line 86, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord #player1 {
   justify-self: start;
 }
 
-/* line 90, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord #player2 {
   justify-self: end;
 }
 
-/* line 93, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord text {
   font-family: 'Open Sans', sans-serif;
   font-size: 23px;
   padding: 5px;
 }
 
-/* line 99, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord .score {
   text-anchor: middle;
   font-size: 30pt;
   fill: black;
 }
 
-/* line 105, /Users/koyangidees/Desktop/pingpong/core/scss/main.scss */
 #gameRecord #startReset button {
   background-color: grey;
   font-size: 24px;
   border: 1px solid darkgrey;
 }
-
-/*# sourceMappingURL=../../public_html/assets/css/main.map */
+/*# sourceMappingURL=main.css.map */
