@@ -32,18 +32,6 @@ body {
   margin-bottom: 6px;
 }
 
-.board #field #paddleLeft {
-  fill: blue;
-}
-
-.board #field #paddleRight {
-  fill: red;
-}
-
-.board #field #ball {
-  fill: black;
-}
-
 button {
   color: white;
   font-weight: 200;
