@@ -17,7 +17,7 @@
             </div>
             <div id="startReset">
                 <button class="start" id="start">START</button>
-                <button class="reset" id="reset">RESET</button>
+                <button class="reset" id="reset" onclick="reset()">RESET</button>
             </div>
             <div id="player2">
                 <text class="score" id="playerTwo-score" x="200" y="50">0</text>

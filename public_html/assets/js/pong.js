@@ -99,3 +99,10 @@ window.setInterval(function show() {
 	document.getElementById('playerScore').innerHTML = score1.toString();
 	document.getElementById('playerTwo-score').innerHTML = score2.toString();
 }, 1000/60);
+
+
+//simple reset function
+function reset(){
+	//location.reload();
+	 window.location.reload(false);
+ } 
