@@ -16,7 +16,7 @@
                 <text class="score" id="playerScore" x="200" y="50">0</text>
             </div>
             <div id="startReset">
-                <button class="start" id="start">START</button>
+                <button class="start" id="start" onclick="startBall()">START</button>
                 <button class="reset" id="reset">RESET</button>
             </div>
             <div id="player2">

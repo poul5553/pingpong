@@ -1,3 +1,12 @@
+var leftPadl = document.getElementById("paddleLeft");
+ var leftDoc;
+ 
+ leftPadl.addEventListener("load",function() {
+	  leftDoc = leftPadl.contentDocument;
+	  console.dir ("left: " + leftDoc); 
+      alert("SVG contentDocument Loaded!");
+ }, false);
+
 var paddleHeight = 100;
 var paddleWidth = 10;
 var ballRadius = 10;
@@ -7,19 +16,26 @@ var positionOfPaddle1 = 300;
 var speedOfPaddle2 = 0;
 var positionOfPaddle2 = 300;
 var topPositionOfBall = 410;
-var leftPositionOfBall = 420;
+var leftPositionOfBall = 820;
 var topSpeedOfBall = 0;
 var leftSpeedOfBall = 0;
 var score1 = 0;
 var score2 = 0;
-function startBall() {
+function startBall(dir = 0) {
 	topPositionOfBall = 410;
-	leftPositionOfBall = 420;
-	if (Math.random() < 0.5) {
-		var side = 1
+	leftPositionOfBall = 820;
+	if (dir == 0) {
+		if (Math.random() < 0.5) {
+			var side = 1
+		} else {
+			var side = -1
+		}	
+	} else if (dir > 0) {
+		side = 1;
 	} else {
-		var side = -1
+		side = -1; 
 	}
+	
 	topSpeedOfBall = Math.random() * 2 + 3;
 	leftSpeedOfBall = side * (Math.random() * 2 + 3);
 };
@@ -51,6 +67,7 @@ document.addEventListener('keyup', function (e) {
 		speedOfPaddle2 = 0;
 	}
 }, false);
+
 function print() {
 	console.log(positionOfPaddle1);
 }
@@ -81,7 +98,7 @@ window.setInterval(function show() {
 			leftSpeedOfBall = -leftSpeedOfBall;
 		} else {
 			score2++;
-			startBall();
+			startBall(-1);
 		}
 	}
 	if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth) {
@@ -89,7 +106,7 @@ window.setInterval(function show() {
 			leftSpeedOfBall = -leftSpeedOfBall
 		} else {
 			score1++
-			startBall();
+			startBall(1);
 		}
 	}
 	document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
