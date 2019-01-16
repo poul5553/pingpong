@@ -57,7 +57,16 @@
                     </g>
                 </svg>
 
-                <circle id="ball" r="10" cx="400" cy="160"></circle>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      style="enable-background:new 0 0 250 250;" xml:space="preserve">
+                <style type="text/css">
+                    #ball
+                </style>
+                    <g>
+                        <circle id="ball" r="10" cx="400" cy="160"/>
+                    </g>
+                </svg>
+                <!--<circle id="ball" r="10" cx="400" cy="160"></circle>-->
             </svg>
     
 
