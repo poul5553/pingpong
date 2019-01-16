@@ -1,4 +1,13 @@
+var lp = document.getElementById("paddleLeft");
+var rp = document.getElementById("paddleRight");
+console.log ("left " + lp);
+console.dir ("right " + rp);
 
+// window.addEventListener("load", function() {
+//     var svgObject = document.getElementById('').contentDocument;
+//     var lsvg = svgObject.getElementById('paddleLeft');
+//     console.log(lsvg);
+//   });
 var paddleHeight = 100;
 var paddleWidth = 10;
 var ballRadius = 10;
@@ -13,9 +22,19 @@ var topSpeedOfBall = 0;
 var leftSpeedOfBall = 0;
 var score1 = 0;
 var score2 = 0;
+function sleep(milliseconds) {
+	var start = new Date().getTime();
+	for (var i = 0; i < 1e7; i++) {
+	  if ((new Date().getTime() - start) > milliseconds){
+		break;
+	  }
+	}
+  }
+
 function startBall(dir = 0) {
-	var topPositionOfBall = window.innerHeight / 2;
-	var leftPositionOfBall = window.innerWidth / 2;
+	topPositionOfBall = window.innerHeight / 2;
+	leftPositionOfBall = window.innerWidth / 2;
+	
 	if (dir == 0) {
 		if (Math.random() < 0.5) {
 			var side = 1
@@ -85,20 +104,22 @@ window.setInterval(function show() {
 		topSpeedOfBall = -topSpeedOfBall
 	}
 	if (leftPositionOfBall <= paddleWidth) {
-		console.dir("left: " + leftPositionOfBall + " " + paddleWidth);
+	
 		if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight) {
 			leftSpeedOfBall = -leftSpeedOfBall;
 		} else {
 			score2++;
+			sleep(1000); 
 			startBall(-1);
 		}
 	}
 	if (leftPositionOfBall >= window.innerWidth - ballRadius - paddleWidth) {
-		console.dir("right: " + leftPositionOfBall + " " + paddleWidth + " " + ballRadius + " " + window.innerWidth);
+		
 		if (topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight) {
 			leftSpeedOfBall = -leftSpeedOfBall
 		} else {
 			score1++
+			sleep(1000); 
 			startBall(1);
 		}
 	}
