@@ -33,7 +33,7 @@
    
     
         
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="10 0 1520 718" preserveAspectRatio="xMinYMin">
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 718" preserveAspectRatio="xMinYMin">
 
                 <!-- <object id="lpadl"> -->
                

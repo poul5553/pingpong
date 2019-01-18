@@ -5,92 +5,102 @@ var speedOfPaddle2 = 0;
 var score1 = 0;
 var score2 = 0;
 
+// initial(); 
+
 var lpad = document.getElementById("paddleLeft");
 var rpad = document.getElementById("paddleRight");
 var baal = document.getElementById("ball");
-lx = lpad.x.animVal.value;
-ly = lpad.style.y;
-lh = lpad.style.height;
-lw = lpad.style.width;
 
-rx = rpad.x.animVal.value;
-ry = rpad.style.y;
-rh = rpad.style.height;
-rw = rpad.style.width;
+var lBox = lpad.getBBox();
+lx = lBox.x;
+ly = lBox.y; 
+lh = lBox.height;
+lw = lBox.width;
+
+var rBox = rpad.getBBox();
+rx = rBox.x;
+ry = rBox.y;
+rh = rBox.height;
+rw = rBox.width;
 
 bx = baal.style.cx;
 by = baal.style.cy;
 br = baal.r.animVal.value; 
 
-
-
-
-var paddleHeightLeft = 100;
-var paddleHeightRight = 100;
-var paddleWidthLeft = 20;
-var paddleWidthRight = 20;
-var ballRadius = 10;
+var paddleHeightLeft = lh;
+var paddleHeightRight = rh;
+var paddleWidthLeft = lw;
+var paddleWidthRight = rw;
+var ballRadius = br;
 var halfPaddleHeightLeft = paddleHeightLeft / 2;
 var halfPaddleHeightRight = paddleHeightRight / 2;
 
-var positionOfPaddle1 = 300;
+var positionOfPaddle1 = (window.innerHeight / 2) - halfPaddleHeightLeft;
+var positionOfPaddle2 = (window.innerHeight / 2) - halfPaddleHeightRight;
 
-var positionOfPaddle2 = parseInt(rpad.style.y);
 var topPositionOfBall = window.innerHeight / 2;
 var leftPositionOfBall = window.innerWidth / 2;
 
 
-function initial () {
+// function initial (sw = 0) {
 
-var lpad = document.getElementById("paddleLeft");
-var rpad = document.getElementById("paddleRight");
-var baal = document.getElementById("ball");
-lx = lpad.x.animVal.value;
-ly = lpad.style.y;
-lh = lpad.height;
-lw = lpad.width;
+// var lpad = document.getElementById("paddleLeft");
+// var rpad = document.getElementById("paddleRight");
+// var baal = document.getElementById("ball");
 
-rx = rpad.x.animVal.value;
-ry = rpad.style.y;
-rh = rpad.style.height;
-rw = rpad.style.width;
+// var lBox = lpad.getBBox();
+// lx = lBox.x;
+// ly = lBox.y; 
+// lh = lBox.height;
+// lw = lBox.width;
 
-bx = baal.style.cx;
-by = baal.style.cy;
-br = baal.r.animVal.value; 
+// var rBox = rpad.getBBox();
+// rx = rBox.x;
+// ry = rBox.y;
+// rh = rBox.height;
+// rw = rBox.width;
 
-console.dir(lx); 
-console.dir(ly); 
-console.dir(lh); 
-console.dir(lw); 
+// bx = baal.style.cx;
+// by = baal.style.cy;
+// br = baal.r.animVal.value; 
 
-console.dir(rx); 
-console.dir(ry); 
-console.dir(rh); 
-console.dir(rw); 
+// console.dir(lx); 
+// console.dir(ly); 
+// console.dir(lh); 
+// console.dir(lw); 
 
-console.dir(bx); 
-console.dir(by); 
-console.dir(br); 
+// console.dir(rx); 
+// console.dir(ry); 
+// console.dir(rh); 
+// console.dir(rw); 
+
+// console.dir(bx); 
+// console.dir(by); 
+// console.dir(br); 
 
 
 
+// if (sw = 0) {
+// 	var paddleHeightLeft = lh;
+// 	var paddleHeightRight = rh;
+// 	var paddleWidthLeft = lw;
+// 	var paddleWidthRight = rw;
+// 	var ballRadius = baal.r.animVal.value;
+// 	var halfPaddleHeightLeft = paddleHeightLeft / 2;
+// 	var halfPaddleHeightRight = paddleHeightRight / 2;
+	
+// 	var positionOfPaddle1 = (window.innerHeight / 2) - halfPaddleHeightLeft;
+// 	var positionOfPaddle2 = (window.innerHeight / 2) - halfPaddleHeightLeft;
+	
+// 	var speedOfPaddle1 = 0;
+// 	var speedOfPaddle2 = 0;
+	
+// 	var topPositionOfBall = window.innerHeight / 2;
+// 	var leftPositionOfBall = window.innerWidth / 2;
+// }
 
-var paddleHeightLeft = lpad.style.height;
-var paddleHeightRight = rpad.style.height;
-var paddleWidthLeft = lpad.style.width;
-var paddleWidthRight = rpad.style.width;
-var ballRadius = baal.r.animVal.value;
-var halfPaddleHeightLeft = paddleHeightLeft / 2;
-var halfPaddleHeightRight = paddleHeightRight / 2;
 
-var positionOfPaddle1 = parseInt(lpad.style.y);
-var speedOfPaddle2 = 0;
-var positionOfPaddle2 = parseInt(rpad.style.y);
-var topPositionOfBall = window.innerHeight / 2;
-var leftPositionOfBall = window.innerWidth / 2;
-
-}
+// }
 
 
 function sleep(milliseconds) {
@@ -103,7 +113,11 @@ function sleep(milliseconds) {
   }
 
 function startBall(dir = 0) {
-	initial();
+
+	var topPositionOfBall = window.innerHeight / 2;
+	var leftPositionOfBall = window.innerWidth / 2;
+	document.getElementById("ball").style.cy = topPositionOfBall;
+	document.getElementById("ball").style.cx = leftPositionOfBall;
 
 	
 	if (dir == 0) {
@@ -120,6 +134,17 @@ function startBall(dir = 0) {
 	
 	topSpeedOfBall = Math.random() * 2 + 3;
 	leftSpeedOfBall = side * (Math.random() * 2 + 3);
+
+	
+
+	if (score1 < 4 && score2 < 4) {
+		console.dir ("sbal "); 
+		console.dir(topSpeedOfBall);
+		console.dir(leftSpeedOfBall);
+		console.dir(topPositionOfBall);
+		console.dir(leftPositionOfBall);
+	}
+	
 	
 };
 document.addEventListener('keydown', function (e) {
@@ -159,30 +184,73 @@ window.setInterval(function show() {
 	topPositionOfBall += topSpeedOfBall;
 	leftPositionOfBall += leftSpeedOfBall;
 
-	initial();
+	var lpad = document.getElementById("paddleLeft");
+	var rpad = document.getElementById("paddleRight");
+	// var baal = document.getElementById("ball");
+	
+	var lBox = lpad.getBBox();
+	lx = lBox.x;
+	ly = lBox.y; 
+	lh = lBox.height;
+	lw = lBox.width;
+	
+	var rBox = rpad.getBBox();
+	rx = rBox.x;
+	ry = rBox.y;
+	rh = rBox.height;
+	rw = rBox.width;
+	
+	// bx = baal.style.cx;
+	// if (bx <= 0) {
+	// 	bx = leftPositionOfBall;
+	// }
+	// by = baal.style.cy;
+	// if (by < 0) {
+	// 	by = topPositionOfBall;
+	// }
+	bx = leftPositionOfBall;
+	by = topPositionOfBall;
+	// br = baal.r.animVal.value; 
+	
+	// console.dir(lx); 
+	// console.dir(ly); 
+	// console.dir(lh); 
+	// console.dir(lw); 
+	
+	// console.dir(rx); 
+	// console.dir(ry); 
+	// console.dir(rh); 
+	// console.dir(rw); 
+	
+	// console.dir(bx); 
+	// console.dir(by); 
+	// console.dir(br); 
+	
 	if (positionOfPaddle1 <= 0) {
 		positionOfPaddle1 = 0;
 	}
 	if (positionOfPaddle2 <= 0) {
 		positionOfPaddle2 = 0;
 	}
-	if (positionOfPaddle1 >= window.innerHeight - paddleHeightLeft) {
-		positionOfPaddle1 = window.innerHeight - paddleHeightLeft;
+	if (positionOfPaddle1 >= window.innerHeight - lh) {
+		positionOfPaddle1 = window.innerHeight - lh;
 	}
-	if (positionOfPaddle2 > window.innerHeight - paddleHeightRight) {
-		positionOfPaddle2 = window.innerHeight - paddleHeightRight;
+	if (positionOfPaddle2 > window.innerHeight - rh) {
+		positionOfPaddle2 = window.innerHeight - rh;
 	}
-	if (topPositionOfBall <= 0 || topPositionOfBall >= window.innerHeight) {
+	if (by + br <= 0 || by + br >= window.innerHeight) {
 		topSpeedOfBall = -topSpeedOfBall
 	}
 	
-	if (leftPositionOfBall <= lx + paddleWidthLeft) {
-		if (topPositionOfBall < lpad.offsetTop - ballRadius && topPositionOfBall > lpad.offsetTop - lpad.offsetHeight) {
+	if ( bx - br <= lx + lw) {
+		
+		// lOffsetTop = ly;
+		if (by - br < ly + lh && by + br > ly) {
 			leftSpeedOfBall = -leftSpeedOfBall;
 		} else {
-			score2++;
-			sleep(1000); 
+			
 			startBall(-1);
+			score2++;
 		}	
 	}
 		// if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight) {
@@ -193,16 +261,21 @@ window.setInterval(function show() {
 		// 	startBall(-1);
 		// }
 	// }
-	if (leftPositionOfBall >= rx - ballRadius - paddleWidthRight) {
-		
-		if (topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeightRight) {
+	if (leftPositionOfBall >= rx - (ballRadius * 2) - rw) {
+		rOffsetTop = ry;
+		if (topPositionOfBall - ballRadius < rOffsetTop && topPositionOfBall + ballRadius > ry + rh) {
 			leftSpeedOfBall = -leftSpeedOfBall
 		} else {
-			score1++
-			sleep(1000); 
+			
 			startBall(1);
+			score1++;
 		}
 	}
+
+	// if (score1 > 9 || score2 > 9) {
+	// 	alert("Game over"); 
+	// 	return; 
+	// }
 	document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
 	document.getElementById("paddleRight").style.y = (positionOfPaddle2);
 	document.getElementById("ball").style.cy = (topPositionOfBall);
