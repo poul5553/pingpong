@@ -30,18 +30,7 @@ body {
   display: inline-block;
   border: 4px solid grey;
   margin-bottom: 6px;
-}
-
-.board #field #paddleLeft {
-  fill: blue;
-}
-
-.board #field #paddleRight {
-  fill: red;
-}
-
-.board #field #ball {
-  fill: black;
+  padding-left: 1vmin;
 }
 
 button {
