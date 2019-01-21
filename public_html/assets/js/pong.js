@@ -20,8 +20,8 @@ function startBall() {
 	} else {
 		var side = -1
 	}
-	topSpeedOfBall = Math.random() * 2 + 3;
-	leftSpeedOfBall = side * (Math.random() * 2 + 3);
+	topSpeedOfBall = Math.random() * 2 + 10;
+	leftSpeedOfBall = side * (Math.random() * 2 + 8);
 };
 document.addEventListener('keydown', function (e) {
      if (e.keyCode == 87 || e.which == 87) { // W key
@@ -88,14 +88,18 @@ window.setInterval(function show() {
 		if (topPositionOfBall > positionOfPaddle2 && topPositionOfBall < positionOfPaddle2 + paddleHeight) {
 			leftSpeedOfBall = -leftSpeedOfBall
 		} else {
-			score1++
+			score1++;
 			startBall();
 		}
 	}
-	document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
-	document.getElementById("paddleRight").style.y = (positionOfPaddle2);
-	document.getElementById("ball").style.cy = (topPositionOfBall);
-	document.getElementById("ball").style.cx = (leftPositionOfBall);
-	document.getElementById('playerScore').innerHTML = score1.toString();
-	document.getElementById('playerTwo-score').innerHTML = score2.toString();
+
+        document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
+        document.getElementById("paddleRight").style.y = (positionOfPaddle2);
+        document.getElementById("ball").style.cy = (topPositionOfBall);
+        document.getElementById("ball").style.cx = (leftPositionOfBall);
+        document.getElementById('playerScore').innerHTML = score1.toString();
+        document.getElementById('playerTwo-score').innerHTML = score2.toString();
+
 }, 1000/60);
+
+

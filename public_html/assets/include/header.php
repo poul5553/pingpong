@@ -7,6 +7,7 @@ session_start();
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="assets/css/main.css">
 
+
     <script type="text/javascript" src="assets/js/pong.js"></script>
 
     <title>PINGPONG</title>

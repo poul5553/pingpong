@@ -1,11 +1,7 @@
 <?php include("assets/include/header.php"); ?>
 
 
-
-<!--<object class="board" type="image/svg+xml" data="assets/svg/Skitse3.svg">Your browser does not support SVGs</object>-->
-
-
-    <section class="board">
+<section class="board" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
         <h1 class="myH1">PINGPONG</h1>
 
@@ -35,13 +31,14 @@
         
             <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 718" preserveAspectRatio="xMinYMin">
 
+                /*Selve spillet*/
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       style="enable-background:new 0 0 250 250;" xml:space="preserve">
                     <style type="text/css">
                         #paddleLeft{fill:#21409A;stroke:#58595B;stroke-miterlimit:10;}
                     </style>
                     <g>
-                        <rect y="120" id="paddleLeft" width="20" height="100"/>
+                        <rect id="paddleLeft" width="20" height="100"/>
                     </g>
                 </svg>
 
@@ -66,9 +63,14 @@
                         <circle id="ball" r="10" cx="400" cy="160"/>
                     </g>
                 </svg>
-                <!--<circle id="ball" r="10" cx="400" cy="160"></circle>-->
-            </svg>
-    
+
+
+
+
+
+
+
+            </svg
 
 
     </section>
