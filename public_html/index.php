@@ -28,44 +28,36 @@
                 <text class="score" id="playerTwo" x="200" y="50">Player 2</text>
 
             </div>
-        </div>  
+        </div>
 
-   
-    
-        
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 718" preserveAspectRatio="xMinYMin">
 
-                <!-- <object id="lpadl"> -->
-               
+
+
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 718" preserveAspectRatio="xMinYMin">
+
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       style="enable-background:new 0 0 250 250;" xml:space="preserve">
                     <style type="text/css">
                         #paddleLeft{fill:#21409A;stroke:#58595B;stroke-miterlimit:10;}
                     </style>
                     <g>
-                        <rect y="120" x="20" id="paddleLeft" width="20" height="100"/>
+                        <rect y="120" id="paddleLeft" width="20" height="100"/>
                     </g>
                 </svg>
 
-                <!-- </object> -->
 
-                <!-- <object id="rpadl"> -->
-                
-                <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       style="enable-background:new 0 0 250 250;" xml:space="preserve">
                     <style type="text/css">
                         #paddleRight{fill:#ED1C24;stroke:#58595B;stroke-miterlimit:10;}
                     </style>
                     <g>
-                        <rect x="1505" y="120" id="paddleRight" width="20" height="100"/>
+                        <rect x="1520" id="paddleRight" width="20" height="100"/>
                     </g>
                 </svg>
 
-                <!-- </object> -->
-
-                <!-- <object id="bold"> -->
-                
-                <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       style="enable-background:new 0 0 250 250;" xml:space="preserve">
                 <style type="text/css">
                     #ball
@@ -75,11 +67,9 @@
                     </g>
                 </svg>
                 <!--<circle id="ball" r="10" cx="400" cy="160"></circle>-->
-                
-                <!-- </object> -->
             </svg>
 
-    
+
 
 
     </section>
