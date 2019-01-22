@@ -1,126 +1,54 @@
+// Initialize variables to run the game (paddles, ball)
 var topSpeedOfBall = 0;
 var leftSpeedOfBall = 0;
 var speedOfPaddle1 = 0;
 var speedOfPaddle2 = 0;
 var score1 = 0;
 var score2 = 0;
+var waitLScor = 0;
+var waitRScor = 0; 
 
-// initial(); 
-
+// Get size and position from DOM
 var lpad = document.getElementById("paddleLeft");
 var rpad = document.getElementById("paddleRight");
 var baal = document.getElementById("ball");
 
 var lBox = lpad.getBBox();
-lx = lBox.x;
-ly = lBox.y; 
-lh = lBox.height;
-lw = lBox.width;
-
 var rBox = rpad.getBBox();
-rx = rBox.x;
-ry = rBox.y;
-rh = rBox.height;
-rw = rBox.width;
 
-bx = baal.style.cx;
-by = baal.style.cy;
-br = baal.r.animVal.value; 
-
-var paddleHeightLeft = lh;
-var paddleHeightRight = rh;
-var paddleWidthLeft = lw;
-var paddleWidthRight = rw;
-var ballRadius = br;
+// Setup position varibles 
+var paddleHeightLeft = lBox.height;
+var paddleHeightRight = rBox.height;
+var paddleWidthLeft = lBox.width;
+var paddleWidthRight =	rBox.width;
+var innerPosPaddleLeft = lBox.x + lBox.width;
+var innerPosPaddleRight = rBox.x; 
+var outerPosPaddleLeft = lBox.x; 
+var outerposPaddleRight = rBox.x - rBox.width;
+var ballRadius = baal.r.animVal.value;
 var halfPaddleHeightLeft = paddleHeightLeft / 2;
 var halfPaddleHeightRight = paddleHeightRight / 2;
 
-var positionOfPaddle1 = (window.innerHeight / 2) - halfPaddleHeightLeft;
-var positionOfPaddle2 = (window.innerHeight / 2) - halfPaddleHeightRight;
+var topPositionOfPaddleLeft = (window.innerHeight / 2) - halfPaddleHeightLeft;
+var topPositionOfPaddleRight = (window.innerHeight / 2) - halfPaddleHeightRight;
 
 var topPositionOfBall = window.innerHeight / 2;
 var leftPositionOfBall = window.innerWidth / 2;
 
-
-// function initial (sw = 0) {
-
-// var lpad = document.getElementById("paddleLeft");
-// var rpad = document.getElementById("paddleRight");
-// var baal = document.getElementById("ball");
-
-// var lBox = lpad.getBBox();
-// lx = lBox.x;
-// ly = lBox.y; 
-// lh = lBox.height;
-// lw = lBox.width;
-
-// var rBox = rpad.getBBox();
-// rx = rBox.x;
-// ry = rBox.y;
-// rh = rBox.height;
-// rw = rBox.width;
-
-// bx = baal.style.cx;
-// by = baal.style.cy;
-// br = baal.r.animVal.value; 
-
-// console.dir(lx); 
-// console.dir(ly); 
-// console.dir(lh); 
-// console.dir(lw); 
-
-// console.dir(rx); 
-// console.dir(ry); 
-// console.dir(rh); 
-// console.dir(rw); 
-
-// console.dir(bx); 
-// console.dir(by); 
-// console.dir(br); 
-
-
-
-// if (sw = 0) {
-// 	var paddleHeightLeft = lh;
-// 	var paddleHeightRight = rh;
-// 	var paddleWidthLeft = lw;
-// 	var paddleWidthRight = rw;
-// 	var ballRadius = baal.r.animVal.value;
-// 	var halfPaddleHeightLeft = paddleHeightLeft / 2;
-// 	var halfPaddleHeightRight = paddleHeightRight / 2;
-	
-// 	var positionOfPaddle1 = (window.innerHeight / 2) - halfPaddleHeightLeft;
-// 	var positionOfPaddle2 = (window.innerHeight / 2) - halfPaddleHeightLeft;
-	
-// 	var speedOfPaddle1 = 0;
-// 	var speedOfPaddle2 = 0;
-	
-// 	var topPositionOfBall = window.innerHeight / 2;
-// 	var leftPositionOfBall = window.innerWidth / 2;
-// }
-
-
-// }
-
-
-function sleep(milliseconds) {
-	var start = new Date().getTime();
-	for (var i = 0; i < 1e7; i++) {
-	  if ((new Date().getTime() - start) > milliseconds){
-		break;
-	  }
-	}
-  }
-
+// Start the ball (begin game)
 function startBall(dir = 0) {
 
-	var topPositionOfBall = window.innerHeight / 2;
-	var leftPositionOfBall = window.innerWidth / 2;
+	topPositionOfBall = window.innerHeight / 2;
+	leftPositionOfBall = window.innerWidth / 2;
 	document.getElementById("ball").style.cy = topPositionOfBall;
 	document.getElementById("ball").style.cx = leftPositionOfBall;
 
 	
 	if (dir == 0) {
+		topPositionOfPaddleLeft = (window.innerHeight / 2) - halfPaddleHeightLeft;
+		topPositionOfPaddleRight = (window.innerHeight / 2) - halfPaddleHeightRight;
+		document.getElementById("paddleLeft").style.y = (topPositionOfPaddleLeft);
+		document.getElementById("paddleRight").style.y = (topPositionOfPaddleRight);
 		if (Math.random() < 0.5) {
 			var side = 1
 		} else {
@@ -131,20 +59,16 @@ function startBall(dir = 0) {
 	} else {
 		side = -1; 
 	}
-	
-	topSpeedOfBall = Math.random() * 2 + 3;
-	leftSpeedOfBall = side * (Math.random() * 2 + 3);
 
+	// Set speed of ball at the beginning
+	if (score1 == 0 && score2 == 0) {
+		topSpeedOfBall = Math.random() * 2 + 3;
+		leftSpeedOfBall = side * (Math.random() * 2 + 3);
 	
-
-	if (score1 < 4 && score2 < 4) {
-		console.dir ("sbal "); 
-		console.dir(topSpeedOfBall);
-		console.dir(leftSpeedOfBall);
-		console.dir(topPositionOfBall);
-		console.dir(leftPositionOfBall);
 	}
 	
+	waitLScor = 0;
+	waitRScor = 0; 
 	
 };
 document.addEventListener('keydown', function (e) {
@@ -176,110 +100,110 @@ document.addEventListener('keyup', function (e) {
 	}
 }, false);
 function print() {
-	console.log(positionOfPaddle1);
+	console.log(topPositionOfPaddleLeft);
 }
-window.setInterval(function show() {
-	positionOfPaddle1 += speedOfPaddle1;
-	positionOfPaddle2 += speedOfPaddle2;
+var repeatCount = setInterval(show, 1000 / 60);
+
+
+function show() {
+	// Move paddles and ball 
+	topPositionOfPaddleLeft += speedOfPaddle1;
+	topPositionOfPaddleRight += speedOfPaddle2;
 	topPositionOfBall += topSpeedOfBall;
 	leftPositionOfBall += leftSpeedOfBall;
-
-	var lpad = document.getElementById("paddleLeft");
-	var rpad = document.getElementById("paddleRight");
-	// var baal = document.getElementById("ball");
 	
-	var lBox = lpad.getBBox();
-	lx = lBox.x;
-	ly = lBox.y; 
-	lh = lBox.height;
-	lw = lBox.width;
-	
-	var rBox = rpad.getBBox();
-	rx = rBox.x;
-	ry = rBox.y;
-	rh = rBox.height;
-	rw = rBox.width;
-	
-	// bx = baal.style.cx;
-	// if (bx <= 0) {
-	// 	bx = leftPositionOfBall;
-	// }
-	// by = baal.style.cy;
-	// if (by < 0) {
-	// 	by = topPositionOfBall;
-	// }
-	bx = leftPositionOfBall;
-	by = topPositionOfBall;
-	// br = baal.r.animVal.value; 
-	
-	// console.dir(lx); 
-	// console.dir(ly); 
-	// console.dir(lh); 
-	// console.dir(lw); 
-	
-	// console.dir(rx); 
-	// console.dir(ry); 
-	// console.dir(rh); 
-	// console.dir(rw); 
-	
-	// console.dir(bx); 
-	// console.dir(by); 
-	// console.dir(br); 
-	
-	if (positionOfPaddle1 <= 0) {
-		positionOfPaddle1 = 0;
+	// Keep paddles inside the game field
+	if (topPositionOfPaddleLeft <= 0) {
+		topPositionOfPaddleLeft = 0;
 	}
-	if (positionOfPaddle2 <= 0) {
-		positionOfPaddle2 = 0;
+	if (topPositionOfPaddleRight <= 0) {
+		topPositionOfPaddleRight = 0;
 	}
-	if (positionOfPaddle1 >= window.innerHeight - lh) {
-		positionOfPaddle1 = window.innerHeight - lh;
+	if (topPositionOfPaddleLeft >= window.innerHeight - paddleHeightLeft) {
+		topPositionOfPaddleLeft = window.innerHeight - paddleHeightLeft;
 	}
-	if (positionOfPaddle2 > window.innerHeight - rh) {
-		positionOfPaddle2 = window.innerHeight - rh;
+	if (topPositionOfPaddleRight > window.innerHeight - paddleHeightRight) {
+		topPositionOfPaddleRight = window.innerHeight - paddleHeightRight;
 	}
-	if (by + br <= 0 || by + br >= window.innerHeight) {
+	// Change direction at top / bottom of the game field
+	if (topPositionOfBall - ballRadius <= 0 || topPositionOfBall + ballRadius >= window.innerHeight) {
 		topSpeedOfBall = -topSpeedOfBall
 	}
 	
-	if ( bx - br <= lx + lw) {
-		
-		// lOffsetTop = ly;
-		if (by - br < ly + lh && by + br > ly) {
+	// Test ballposition at the left side of the game field
+	if (leftPositionOfBall - ballRadius <= innerPosPaddleLeft) {
+		// Test hit on left paddle
+		if (topPositionOfBall - ballRadius <= topPositionOfPaddleLeft + paddleHeightLeft && topPositionOfBall + ballRadius >= topPositionOfPaddleLeft && waitRScor == 0) {
+			// hit: change ball direction
 			leftSpeedOfBall = -leftSpeedOfBall;
-		} else {
+		} else 
+			// Set score switch for testing 
+			waitRScor = 1;
+			// no hit: score for opponent and start new ball 
+			if (leftPositionOfBall < -10) {
+				score2++;
+				if (score2 >= 3) {
+					gameStop();
+				} else {
+					startBall(-1);
+				}
+				
+			}
 			
-			startBall(-1);
-			score2++;
-		}	
-	}
-		// if (topPositionOfBall > positionOfPaddle1 && topPositionOfBall < positionOfPaddle1 + paddleHeight) {
-		// 	leftSpeedOfBall = -leftSpeedOfBall;
-		// } else {
-		// 	score2++;
-		// 	sleep(1000); 
-		// 	startBall(-1);
-		// }
-	// }
-	if (leftPositionOfBall >= rx - (ballRadius * 2) - rw) {
-		rOffsetTop = ry;
-		if (topPositionOfBall - ballRadius < rOffsetTop && topPositionOfBall + ballRadius > ry + rh) {
-			leftSpeedOfBall = -leftSpeedOfBall
-		} else {
-			
-			startBall(1);
-			score1++;
-		}
 	}
 
-	// if (score1 > 9 || score2 > 9) {
-	// 	alert("Game over"); 
-	// 	return; 
-	// }
-	document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
-	document.getElementById("paddleRight").style.y = (positionOfPaddle2);
+
+		// Test ballposition at the right side of the game field
+		if (leftPositionOfBall + ballRadius >= innerPosPaddleRight) {
+			// Test hit on left paddle
+			if (topPositionOfBall - ballRadius < topPositionOfPaddleRight + paddleHeightRight && topPositionOfBall + ballRadius > topPositionOfPaddleRight && waitLScor == 0) {
+				// hit: change ball direction
+				leftSpeedOfBall = -leftSpeedOfBall;
+			} else {
+				// Set score switch for testing
+				waitLScor = 1; 
+				if (leftPositionOfBall > window.innerWidth + 10) {
+					score1++;
+					if (score1 >= 3) {
+						gameStop();
+					} else {
+						startBall(1);
+					}
+					
+				}
+				
+			}	
+		}
+
+	
+	// Update positions for paddles, ball and score for both players 
+	document.getElementById("paddleLeft").style.y = (topPositionOfPaddleLeft);
+	document.getElementById("paddleRight").style.y = (topPositionOfPaddleRight);
 	document.getElementById("ball").style.cy = (topPositionOfBall);
 	document.getElementById("ball").style.cx = (leftPositionOfBall);
 	document.getElementById('playerScore').innerHTML = score1.toString();
 	document.getElementById('playerTwo-score').innerHTML = score2.toString();
-}, 1000/60);
+};
+
+
+function gameStop() {
+	
+	clearInterval(repeatCount);
+	if (score1 >= 3) {
+		var winnerModal = document.getElementById("field"); 
+		winnerModal.classList.add("winnerBlue");
+		winnerModal.style.display = "block";
+
+	} else {
+		var winnerModal = document.getElementById("field"); 
+		winnerModal.classList.add("winnerRed");
+		winnerModal.style.display = "block";
+	}
+	
+}
+
+//simple reset function
+function reset(){
+	//location.reload();
+	 window.location.reload(false);
+ } 

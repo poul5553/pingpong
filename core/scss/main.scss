@@ -29,7 +29,7 @@ body {
             display: inline-block;
             border: 4px solid grey;
             margin-bottom: 6px;
-            padding-left: 1vmin; 
+ 
         }
 }
 
@@ -101,4 +101,36 @@ button:hover{
         font-size: 24px;
         border: 1px solid darkgrey;
     }
+}
+
+.winnerRed {
+    display: none;
+    position: fixed; 
+    z-index: 5;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    background-image: url("/assets/svg/redwinner.svg"); 
+    background-size: cover;
+}
+
+.winnerBlue {
+    display: none;
+    position: fixed; 
+    z-index: 5;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    background-image: url("/assets/svg/bluewinner.svg"); 
+    background-size: cover;
 }
