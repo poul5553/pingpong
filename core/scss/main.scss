@@ -105,32 +105,30 @@ button:hover{
 
 .winnerRed {
     display: none;
-    position: fixed; 
+    position: center; 
     z-index: 5;
-    padding-top: 100px;
-    left: 35vmin;
-    top: 30vmin;
+    padding-top: 0;
+    left: 0;
+    top: 0;
     width: 50%;
     height: 100%;
     margin: auto;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
     background-image: url("/assets/svg/redwinner.svg"); 
     background-size: cover;
 }
 
 .winnerBlue {
     display: none;
-    position: fixed; 
+    position: center; 
     z-index: 5;
-    padding-top: 100px;
-    left: 35vmin;
-    top: 30vmin;
+    padding-top: 0;
+    left: 0;
+    top: 0;
     width: 50%;
     height: 100%;
     margin: auto;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
     background-image: url("/assets/svg/bluewinner.svg"); 
     background-size: cover;
 }
