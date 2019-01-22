@@ -81,6 +81,9 @@ window.setInterval(function show() {
 			leftSpeedOfBall = -leftSpeedOfBall;
 		} else {
 			score2++;
+			if (score2 <10) {
+
+			}
 			startBall();
 		}
 	}
@@ -92,6 +95,9 @@ window.setInterval(function show() {
 			startBall();
 		}
 	}
+
+
+
 
         document.getElementById("paddleLeft").style.y = (positionOfPaddle1);
         document.getElementById("paddleRight").style.y = (positionOfPaddle2);
