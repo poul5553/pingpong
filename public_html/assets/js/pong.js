@@ -7,6 +7,7 @@ var score1 = 0;
 var score2 = 0;
 var waitLScor = 0;
 var waitRScor = 0; 
+var setLeftSpeed = 5;
 
 // Get size and position from DOM
 var lpad = document.getElementById("paddleLeft");
@@ -60,12 +61,22 @@ function startBall(dir = 0) {
 		side = -1; 
 	}
 
+	if (Math.random() < 0.5) {
+		var topDir = 1
+	} else {
+		var topDir = -1
+	}	
+
+	
+
+
 	// Set speed of ball at the beginning
 	if (score1 == 0 && score2 == 0) {
-		topSpeedOfBall = Math.random() * 2 + 3;
-		leftSpeedOfBall = side * (Math.random() * 2 + 3);
-	
-	}
+		leftSpeedOfBall = setLeftSpeed;
+		leftSpeedOfBall = leftSpeedOfBall * side;
+	} 
+	topSpeedOfBall = setLeftSpeed + (Math.random() * 2);
+	topSpeedOfBall = topSpeedOfBall * topDir;
 	
 	waitLScor = 0;
 	waitRScor = 0; 

@@ -109,8 +109,8 @@ button:hover {
   position: fixed;
   z-index: 5;
   padding-top: 100px;
-  left: 0;
-  top: 0;
+  left: 35vmin;
+  top: 30vmin;
   width: 50%;
   height: 100%;
   margin: auto;
@@ -125,8 +125,8 @@ button:hover {
   position: fixed;
   z-index: 5;
   padding-top: 100px;
-  left: 0;
-  top: 0;
+  left: 35vmin;
+  top: 30vmin;
   width: 50%;
   height: 100%;
   margin: auto;
