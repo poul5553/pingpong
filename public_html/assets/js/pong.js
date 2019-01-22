@@ -6,7 +6,7 @@ var speedOfPaddle2 = 0;
 var score1 = 0;
 var score2 = 0;
 var waitLScor = 0;
-var waitRScor = 0; 
+var waitRScor = 0;
 var setLeftSpeed = 5;
 
 // Get size and position from DOM
@@ -17,14 +17,14 @@ var baal = document.getElementById("ball");
 var lBox = lpad.getBBox();
 var rBox = rpad.getBBox();
 
-// Setup position varibles 
+// Setup position varibles
 var paddleHeightLeft = lBox.height;
 var paddleHeightRight = rBox.height;
 var paddleWidthLeft = lBox.width;
 var paddleWidthRight =	rBox.width;
 var innerPosPaddleLeft = lBox.x + lBox.width;
-var innerPosPaddleRight = rBox.x; 
-var outerPosPaddleLeft = lBox.x; 
+var innerPosPaddleRight = rBox.x;
+var outerPosPaddleLeft = lBox.x;
 var outerposPaddleRight = rBox.x - rBox.width;
 var ballRadius = baal.r.animVal.value;
 var halfPaddleHeightLeft = paddleHeightLeft / 2;
@@ -44,7 +44,7 @@ function startBall(dir = 0) {
 	document.getElementById("ball").style.cy = topPositionOfBall;
 	document.getElementById("ball").style.cx = leftPositionOfBall;
 
-	
+
 	if (dir == 0) {
 		topPositionOfPaddleLeft = (window.innerHeight / 2) - halfPaddleHeightLeft;
 		topPositionOfPaddleRight = (window.innerHeight / 2) - halfPaddleHeightRight;
@@ -54,34 +54,45 @@ function startBall(dir = 0) {
 			var side = 1
 		} else {
 			var side = -1
-		}	
+		}
 	} else if (dir > 0) {
 		side = 1;
 	} else {
-		side = -1; 
+		side = -1;
 	}
 
 	if (Math.random() < 0.5) {
 		var topDir = 1
 	} else {
 		var topDir = -1
-	}	
+	}
 
-	
+
 
 
 	// Set speed of ball at the beginning
 	if (score1 == 0 && score2 == 0) {
 		leftSpeedOfBall = setLeftSpeed;
 		leftSpeedOfBall = leftSpeedOfBall * side;
-	} 
+	}
 	topSpeedOfBall = setLeftSpeed + (Math.random() * 2);
 	topSpeedOfBall = topSpeedOfBall * topDir;
-	
+
 	waitLScor = 0;
-	waitRScor = 0; 
-	
+	waitRScor = 0;
+
 };
+
+function Speed(value){
+    if( value == slow){
+        setLeftSpeed = 3;
+    } else if(value == speednormal){
+        setLeftSpeed = 5;
+    } else if (value == fast){
+        setLeftSpeed = 8;
+    }
+}
+
 document.addEventListener('keydown', function (e) {
      if (e.keyCode == 87 || e.which == 87) { // W key
       speedOfPaddle1 = -10;
@@ -117,12 +128,12 @@ var repeatCount = setInterval(show, 1000 / 60);
 
 
 function show() {
-	// Move paddles and ball 
+	// Move paddles and ball
 	topPositionOfPaddleLeft += speedOfPaddle1;
 	topPositionOfPaddleRight += speedOfPaddle2;
 	topPositionOfBall += topSpeedOfBall;
 	leftPositionOfBall += leftSpeedOfBall;
-	
+
 	// Keep paddles inside the game field
 	if (topPositionOfPaddleLeft <= 0) {
 		topPositionOfPaddleLeft = 0;
@@ -140,17 +151,17 @@ function show() {
 	if (topPositionOfBall - ballRadius <= 0 || topPositionOfBall + ballRadius >= window.innerHeight) {
 		topSpeedOfBall = -topSpeedOfBall
 	}
-	
+
 	// Test ballposition at the left side of the game field
 	if (leftPositionOfBall - ballRadius <= innerPosPaddleLeft) {
 		// Test hit on left paddle
 		if (topPositionOfBall - ballRadius <= topPositionOfPaddleLeft + paddleHeightLeft && topPositionOfBall + ballRadius >= topPositionOfPaddleLeft && waitRScor == 0) {
 			// hit: change ball direction
 			leftSpeedOfBall = -leftSpeedOfBall;
-		} else 
-			// Set score switch for testing 
+		} else
+			// Set score switch for testing
 			waitRScor = 1;
-			// no hit: score for opponent and start new ball 
+			// no hit: score for opponent and start new ball
 			if (leftPositionOfBall < -10) {
 				score2++;
 				if (score2 >= 3) {
@@ -158,9 +169,9 @@ function show() {
 				} else {
 					startBall(-1);
 				}
-				
+
 			}
-			
+
 	}
 
 
@@ -172,7 +183,7 @@ function show() {
 				leftSpeedOfBall = -leftSpeedOfBall;
 			} else {
 				// Set score switch for testing
-				waitLScor = 1; 
+				waitLScor = 1;
 				if (leftPositionOfBall > window.innerWidth + 10) {
 					score1++;
 					if (score1 >= 3) {
@@ -180,14 +191,14 @@ function show() {
 					} else {
 						startBall(1);
 					}
-					
+
 				}
-				
-			}	
+
+			}
 		}
 
-	
-	// Update positions for paddles, ball and score for both players 
+
+	// Update positions for paddles, ball and score for both players
 	document.getElementById("paddleLeft").style.y = (topPositionOfPaddleLeft);
 	document.getElementById("paddleRight").style.y = (topPositionOfPaddleRight);
 	document.getElementById("ball").style.cy = (topPositionOfBall);
@@ -198,23 +209,23 @@ function show() {
 
 
 function gameStop() {
-	
+
 	clearInterval(repeatCount);
 	if (score1 >= 3) {
-		var winnerModal = document.getElementById("field"); 
+		var winnerModal = document.getElementById("field");
 		winnerModal.classList.add("winnerBlue");
 		winnerModal.style.display = "block";
 
 	} else {
-		var winnerModal = document.getElementById("field"); 
+		var winnerModal = document.getElementById("field");
 		winnerModal.classList.add("winnerRed");
 		winnerModal.style.display = "block";
 	}
-	
+
 }
 
 //simple reset function
 function reset(){
 	//location.reload();
 	 window.location.reload(false);
- } 
+ }

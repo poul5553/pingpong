@@ -12,15 +12,6 @@ function ballS(value){
     }
 }
 
-/*  */
-document.getElementById("ball").style.cy = (topPositionOfBall);
-document.getElementById("ball").style.cx = (leftPositionOfBall);
-var topSpeedOfBall = 0;
-var leftSpeedOfBall = 0;
-
-function Speed(value){
-    
-}
 
 /* Get both game paddles */
 var paddleleft = document.getElementById("paddleLeft");
@@ -28,25 +19,13 @@ var paddleright = document.getElementById("paddleRight");
 
 /*Function to change the length of paddles*/
 function paddleLength(value){
-    if(value == short){
-        paddleleft.style.height = "100px";
-        paddleright.style.height = "100px";
-        paddleHeight = 100;
-    } else if(value == paddlenormal){
-        paddleleft.style.height = "200px";
-        paddleright.style.height = "200px";
-        paddleHeight = 200;
-        
-    } else if(value == long){
-        paddleleft.style.height = "300px";
-        paddleright.style.height = "300px";
-        paddleHeight = 300;
-    }
+        paddleleft.style.height = value + "px";
+        paddleright.style.height = value + "px";
+        paddleHeightLeft = value;
+        paddleHeightRight = value;
 }
 
 function ResetSetting(){
     ballS(medium);
     paddleLength(long);
 }
-
-

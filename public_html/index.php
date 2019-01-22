@@ -10,8 +10,8 @@
         <h1 class="myH1">PINGPONG</h1>
 
         <div id="playSetting">
-            <button class="how" id="how">HOW TO PLAY</button>
-            <button class="setting" id="setting">SETTINGS</button>
+            <button class="how" id="how" onclick="howtoplay()">HOW TO PLAY</button>
+            <button class="setting" id="setting" onclick="setting()">SETTINGS</button>
         </div>
 
         <div id="gameRecord">
@@ -33,12 +33,11 @@
 
 
 
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 718" preserveAspectRatio="xMinYMin">
 
     <!--Howtoplay modal popup-->
     <div id="myModal" class="modal">
           <div class="modal-content">
-            <span class="close" onclick="Close()"><i class="fas fa-times"></i></span>
+            <span class="close" onclick="Close()">X<i class="fas fa-times"></i></span>
               <h3>How To Play</h3>
               <p><i class="fas fa-circle p1"></i> Player 1 : UP( W ) / DOWN( S )</p>
               <p><i class="fas fa-circle p2"></i> Player 2 : UP( <i class="fas fa-long-arrow-alt-up"></i> )
@@ -51,7 +50,7 @@
     <div id="SettingModal" class="modal">
           <div class="modal-content">
 
-            <span class="close" onclick="Close()"><i class="fas fa-times"></i></span>
+            <span class="close" onclick="Close()">X<i class="fas fa-times"></i></span>
               <h3>Settings</h3><br/>
               <!--Setting form-->
               <form name="Settingform" class="Settingform">
@@ -86,13 +85,13 @@
                  <div class="Setting-field">
                       <div class="switch-title">Paddle Size</div>
 
-                      <input type="radio" id="short" name="paddlesize" value="short" onclick="paddleLength(short)" />
+                      <input type="radio" id="short" name="paddlesize" value="short" onclick="paddleLength(100)" />
                       <label for="short">Short</label>
 
-                      <input type="radio" id="paddlenormal" name="paddlesize" value="paddlenormal" onclick="paddleLength(paddlenormal)"  />
+                      <input type="radio" id="paddlenormal" name="paddlesize" value="paddlenormal" onclick="paddleLength(200)"  />
                       <label for="paddlenormal">Medium</label>
 
-                      <input type="radio" id="long" name="paddlesize" value="long" onclick="paddleLength(long)" checked/>
+                      <input type="radio" id="long" name="paddlesize" value="long" onclick="paddleLength(300)" checked/>
                       <label for="long">Long</label>
                   </div>
 
