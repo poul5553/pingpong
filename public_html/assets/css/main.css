@@ -103,4 +103,34 @@ button:hover {
   font-size: 24px;
   border: 1px solid darkgrey;
 }
+
+.winnerRed {
+  display: none;
+  position: center;
+  z-index: 5;
+  padding-top: 0;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-image: url("/assets/svg/redwinner.svg");
+  background-size: cover;
+}
+
+.winnerBlue {
+  display: none;
+  position: center;
+  z-index: 5;
+  padding-top: 0;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-image: url("/assets/svg/bluewinner.svg");
+  background-size: cover;
+}
 /*# sourceMappingURL=main.css.map */

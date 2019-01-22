@@ -1,0 +1,19 @@
+{
+  "name": "cc",
+  "version": "1.0.0",
+  "description": "Projekt PingPong - Vi skal lave et pingpong spil",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poul5553/pingpong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poul5553/pingpong/issues"
+  },
+  "homepage": "https://github.com/poul5553/pingpong#readme"
+}
