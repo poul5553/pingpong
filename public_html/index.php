@@ -43,7 +43,7 @@
         </div>
     
     <!--Settings modal popup-->
-        <div id="SettingModal" class="modal">
+    <div id="SettingModal" class="modal">
           <div class="modal-content">      
 
             <span class="close" onclick="Close()"><i class="fas fa-times"></i></span>
@@ -53,13 +53,13 @@
                 <!--Setting size of the ball-->
                 <div class="Setting-field">
                     <div class="switch-title">Ball Size</div>
-                    <input type="radio" id="small" name="ballsize" value="small" onclick="ballS()" />
+                    <input type="radio" id="small" name="ballsize" value="small" onclick="ballS(small)" />
                     <label for="small">Small</label>
    
-                    <input type="radio" id="medium" name="ballsize" value="medium" onclick="ballS()" checked/>
+                    <input type="radio" id="medium" name="ballsize" value="medium" onclick="ballS(medium)" checked/>
                     <label for="medium">Medium</label>
                     
-                     <input type="radio" id="big" name="ballsize" value="big" onclick="ballS()" />
+                     <input type="radio" id="big" name="ballsize" value="big" onclick="ballS(big)" />
                     <label for="big">Big</label>   
                 </div>
                   
@@ -67,13 +67,13 @@
                 <div class="Setting-field">
                       <div class="switch-title">Ball Speed</div>
                       
-                      <input type="radio" id="slow" name="ballspeed" value="slow" onclick="Speed()" />
+                      <input type="radio" id="slow" name="ballspeed" value="slow" onclick="Speed(slow)" />
                       <label for="slow">Slow</label>
                       
-                      <input type="radio" id="speednormal" name="ballspeed" value="normal" onclick="Speed()" checked/>
+                      <input type="radio" id="speednormal" name="ballspeed" value="speednormal" onclick="Speed(speednormal)" checked/>
                       <label for="speednormal">Normal</label>
                       
-                      <input type="radio" id="fast" name="ballspeed" value="fast" onclick="Speed()" />
+                      <input type="radio" id="fast" name="ballspeed" value="fast" onclick="Speed(fast)" />
                       <label for="fast">Fast</label>
                 </div>
                   
@@ -81,17 +81,17 @@
                  <div class="Setting-field">
                       <div class="switch-title">Paddle Size</div>
                       
-                      <input type="radio" id="short" name="paddlesize" value="slow" onclick="paddleLength()" />
+                      <input type="radio" id="short" name="paddlesize" value="short" onclick="paddleLength(short)" />
                       <label for="short">Short</label>
                       
-                      <input type="radio" id="paddlenormal" name="paddlesize" value="normal" onclick="paddleLength()" checked/>
+                      <input type="radio" id="paddlenormal" name="paddlesize" value="paddlenormal" onclick="paddleLength(paddlenormal)"  />
                       <label for="paddlenormal">Medium</label>
                       
-                      <input type="radio" id="long" name="paddlesize" value="long" onclick="paddleLength()" />
+                      <input type="radio" id="long" name="paddlesize" value="long" onclick="paddleLength(long)" checked/>
                       <label for="long">Long</label>
                   </div>
               
-                  <button type="reset" id="resetsetting" onclick="ResetSetting()" value="Reset"> Reset <br/>Settings </button>
+                  <button type="reset" id="resetsetting" onclick="ResetSetting()"> Reset <br/>Settings </button>
               </form>
           </div>
         </div>
