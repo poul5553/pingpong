@@ -1,28 +1,99 @@
-var paddleHeight = 100;
-var paddleWidth = 10;
-var ballRadius = 10;
-var halfPaddleHeight = paddleHeight / 2;
-var speedOfPaddle1 = 0;
-var positionOfPaddle1 = 300;
-var speedOfPaddle2 = 0;
-var positionOfPaddle2 = 300;
-var topPositionOfBall = 410;
-var leftPositionOfBall = 420;
+// Initialize variables to run the game (paddles, ball)
 var topSpeedOfBall = 0;
 var leftSpeedOfBall = 0;
+var speedOfPaddle1 = 0;
+var speedOfPaddle2 = 0;
 var score1 = 0;
 var score2 = 0;
-function startBall() {
-	topPositionOfBall = 410;
-	leftPositionOfBall = 420;
-	if (Math.random() < 0.5) {
-		var side = 1
+var waitLScor = 0;
+var waitRScor = 0; 
+var setLeftSpeed = 5;
+
+// Get size and position from DOM
+var lpad = document.getElementById("paddleLeft");
+var rpad = document.getElementById("paddleRight");
+var baal = document.getElementById("ball");
+
+var lBox = lpad.getBBox();
+var rBox = rpad.getBBox();
+
+// Setup position varibles 
+var paddleHeightLeft = lBox.height;
+var paddleHeightRight = rBox.height;
+var paddleWidthLeft = lBox.width;
+var paddleWidthRight =	rBox.width;
+var innerPosPaddleLeft = lBox.x + lBox.width;
+var innerPosPaddleRight = rBox.x; 
+var outerPosPaddleLeft = lBox.x; 
+var outerposPaddleRight = rBox.x - rBox.width;
+var ballRadius = baal.r.animVal.value;
+var halfPaddleHeightLeft = paddleHeightLeft / 2;
+var halfPaddleHeightRight = paddleHeightRight / 2;
+
+var topPositionOfPaddleLeft = (window.innerHeight / 2) - halfPaddleHeightLeft;
+var topPositionOfPaddleRight = (window.innerHeight / 2) - halfPaddleHeightRight;
+
+var topPositionOfBall = window.innerHeight / 2;
+var leftPositionOfBall = window.innerWidth / 2;
+
+// Start the ball (begin game)
+function startBall(dir = 0) {
+
+	topPositionOfBall = window.innerHeight / 2;
+	leftPositionOfBall = window.innerWidth / 2;
+	document.getElementById("ball").style.cy = topPositionOfBall;
+	document.getElementById("ball").style.cx = leftPositionOfBall;
+
+	
+	if (dir == 0) {
+		topPositionOfPaddleLeft = (window.innerHeight / 2) - halfPaddleHeightLeft;
+		topPositionOfPaddleRight = (window.innerHeight / 2) - halfPaddleHeightRight;
+		document.getElementById("paddleLeft").style.y = (topPositionOfPaddleLeft);
+		document.getElementById("paddleRight").style.y = (topPositionOfPaddleRight);
+		if (Math.random() < 0.5) {
+			var side = 1
+		} else {
+			var side = -1
+		}	
+	} else if (dir > 0) {
+		side = 1;
 	} else {
-		var side = -1
+		side = -1; 
 	}
-	topSpeedOfBall = Math.random() * 2 + 3;
-	leftSpeedOfBall = side * (Math.random() * 2 + 3);
+
+	if (Math.random() < 0.5) {
+		var topDir = 1
+	} else {
+		var topDir = -1
+	}	
+
+	
+
+
+	// Set speed of ball at the beginning
+	if (score1 == 0 && score2 == 0) {
+		leftSpeedOfBall = setLeftSpeed;
+		leftSpeedOfBall = leftSpeedOfBall * side;
+	} 
+	topSpeedOfBall = setLeftSpeed + (Math.random() * 2);
+	topSpeedOfBall = topSpeedOfBall * topDir;
+	
+	waitLScor = 0;
+	waitRScor = 0; 
+	
 };
+
+function Speed(value){
+    if( value == slow){
+        setLeftSpeed = 3;
+    } else if(value == speednormal){
+        setLeftSpeed = 5;
+    } else if (value == fast){
+        setLeftSpeed = 8;
+    }
+}
+
+
 document.addEventListener('keydown', function (e) {
      if (e.keyCode == 87 || e.which == 87) { // W key
       speedOfPaddle1 = -10;
