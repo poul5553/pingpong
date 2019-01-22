@@ -115,7 +115,7 @@ button:hover {
   height: 100%;
   margin: auto;
   overflow: auto;
-  background-image: url("/assets/svg/redwinner.svg");
+  background-image: url("../svg/redwinner.svg");
   background-size: cover;
 }
 
@@ -130,7 +130,7 @@ button:hover {
   height: 100%;
   margin: auto;
   overflow: auto;
-  background-image: url("/assets/svg/bluewinner.svg");
+  background-image: url("../svg/bluewinner.svg");
   background-size: cover;
 }
 /*# sourceMappingURL=main.css.map */
