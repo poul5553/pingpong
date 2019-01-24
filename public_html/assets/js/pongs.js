@@ -19,10 +19,62 @@ var boxH = bane.viewBox.baseVal.height;
 var boxW = bane.viewBox.baseVal.width;  
 var lBox = lpad.getBBox();
 var rBox = rpad.getBBox();
+var ballsize = document.getElementById("ball");
+ballsize.style.r = 25;
+/*function to change the size of the ball*/
+function ballS(value){
+    if(value == small){
+        ballsize.style.r = "10";
+    } else if( value == medium){
+        ballsize.style.r = "25";
+    } else if( value == big){
+        ballsize.style.r = "50";
+    }
+}
+
+
+/* Get both game paddles */
+var paddleleft = document.getElementById("paddleLeft");
+var paddleright = document.getElementById("paddleRight");
+paddleleft.style.height = "300px";
+paddleright.style.height = "300px";
+paddleHeightLeft = 300;
+paddleHeightRight = 300;
+placePaddles ();
+
+/*Function to change the length of paddles*/
+function paddleLength(value){
+        paddleleft.style.height = value + "px";
+        paddleright.style.height = value + "px";
+        paddleHeightLeft = value;
+        paddleHeightRight = value;
+        placePaddles ();
+}
+
+function ResetSetting(){
+    ballS(medium);
+    paddleLength(long);
+}
+
+function placePaddles () {
+    var bane = document.getElementById("field"); 
+    var box = bane.getAttribute('viewBox');
+    var boxH = bane.viewBox.baseVal.height;  
+
+    var halfPaddleHeightLeft = paddleHeightLeft / 2;
+    var halfPaddleHeightRight = paddleHeightRight / 2;
+    var topPositionOfPaddleLeft = (boxH / 2) - halfPaddleHeightLeft;
+    var topPositionOfPaddleRight = (boxH / 2) - halfPaddleHeightRight;
+    document.getElementById("paddleLeft").style.y = (topPositionOfPaddleLeft);
+	document.getElementById("paddleRight").style.y = (topPositionOfPaddleRight);
+
+}
 
 // Setup position varibles
-var paddleHeightLeft = lBox.height;
-var paddleHeightRight = rBox.height;
+var paddleHeightLeft = parseInt(lBox.y);
+var paddleHeightRight = parseInt(rBox.y);
+console.log (lBox.y);
+console.log (paddleHeightLeft);
 var paddleWidthLeft = lBox.width;
 var paddleWidthRight =	rBox.width;
 var innerPosPaddleLeft = lBox.x + lBox.width;
@@ -115,6 +167,7 @@ document.addEventListener('keydown', function (e) {
       speedOfPaddle2 = 10;
      }
 }, false);
+console.log("keydown");
 document.addEventListener('keyup', function (e) {
 	if (e.keyCode == 87 || e.which == 87) {
 		speedOfPaddle1 = 0;
@@ -137,6 +190,7 @@ var repeatCount = setInterval(show, 1000 / 60);
 
 function show() {
 	// Move paddles and ball
+	
 	topPositionOfPaddleLeft += speedOfPaddle1;
 	topPositionOfPaddleRight += speedOfPaddle2;
 	topPositionOfBall += topSpeedOfBall;
@@ -192,6 +246,8 @@ function show() {
 				// hit: change ball direction
 				leftSpeedOfBall = -leftSpeedOfBall;
 			} else {
+				// Set score switch for testing
+				console.dir ("rigth bounce " + leftPositionOfBall + " " + ballRadiusN + " " + boxW);
 				waitLScor = 1;
 				if (leftPositionOfBall > boxW + ballRadiusN) {
 					score1++;
