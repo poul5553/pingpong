@@ -1,4 +1,4 @@
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("HowModal");
 var settingmodal = document.getElementById("SettingModal");
 
 function reset(){

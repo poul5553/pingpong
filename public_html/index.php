@@ -16,16 +16,18 @@
 
         <div id="gameRecord">
             <div id="player1">
-                <text class="score" id="playerOne" x="200" y="50">Player 1</text>
-                <text class="score" id="playerScore" x="200" y="50">0</text>
+                <!-- <text class="score" id="playerOne" x="200" y="50">Player 1</text> -->
+                <input type="text" name="PlayerOne" id="playerOne" class="score"  placeholder="Player 1">
+                <text class="score" id="playerScore" >0</text>
             </div>
             <div id="startReset">
                 <button class="start" id="start" onclick="startBall()">START</button>
                 <button class="reset" id="reset" onclick="reset()">RESET</button>
             </div>
             <div id="player2">
-                <text class="score" id="playerTwo-score" x="200" y="50">0</text>
-                <text class="score" id="playerTwo" x="200" y="50">Player 2</text>
+                <text class="score" id="playerTwo-score" >0</text>
+                <!-- <text class="score" id="playerTwo" x="200" y="50">Player 2</text> -->
+                <input type="text" name="PlayerOne" id="playerOne" class="score"  placeholder="Player 2">
 
             </div>
         </div>
@@ -35,7 +37,7 @@
 
 
     <!--Howtoplay modal popup-->
-    <div id="myModal" class="modal">
+    <div id="HowModal" class="modal">
           <div class="modal-content">
             <span class="close" onclick="Close()">X<i class="fas fa-times"></i></span>
               <h3>How To Play</h3>
@@ -101,7 +103,7 @@
         </div>
 
 
-            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1540 718" preserveAspectRatio="xMinYMin">
+            <svg id="field" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 718" preserveAspectRatio="xMinYMin">
 
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                       style="enable-background:new 0 0 250 250;" xml:space="preserve">
@@ -121,7 +123,7 @@
                         #paddleRight{fill:#ED1C24;stroke:#58595B;stroke-miterlimit:10;}
                     </style>
                     <g>
-                        <rect x="1505" y="120" id="paddleRight" width="20" height="100"/>
+                        <rect x="1660" y="120" id="paddleRight" width="20" height="100"/>
                     </g>
                 </svg>
 

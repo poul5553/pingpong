@@ -1,6 +1,6 @@
 /* Get id for the ball */
 var ballsize = document.getElementById("ball");
-
+ballsize.style.r = 25;
 /*function to change the size of the ball*/
 function ballS(value){
     if(value == small){
@@ -16,6 +16,10 @@ function ballS(value){
 /* Get both game paddles */
 var paddleleft = document.getElementById("paddleLeft");
 var paddleright = document.getElementById("paddleRight");
+paddleleft.style.height = "300px";
+paddleright.style.height = "300px";
+paddleHeightLeft = 300;
+paddleHeightRight = 300;
 
 /*Function to change the length of paddles*/
 function paddleLength(value){
